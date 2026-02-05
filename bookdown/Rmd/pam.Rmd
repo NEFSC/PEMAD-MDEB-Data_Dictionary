@@ -95,7 +95,15 @@ field_desc = rwsc_pam_layer_meta |>
 field_df = data.frame(name = field_names |> tolower(), description = field_desc)
 rwsc_pam_fields = rwsc_pam_fields |>
   dplyr::left_join(field_df, by = 'name') |>
-  dplyr::select(name, alias, description, dataType)
+  dplyr::select(name, alias, description, dataType) |>
+  dplyr::filter(name != 'objectid')
+
+## add in oid and survey_name
+rwsc_pam_fields = dplyr::bind_rows(
+  data.frame(name = 'oid', alias = 'OID', description = 'Original object ID', dataType = 'esriFieldTypeBigInteger'),
+  data.frame(name = 'survey_name', alias = 'SURVEY NAME', description = 'Name of NEFSC scientific survey', dataType = 'esriFieldTypeString'),
+  rwsc_pam_fields
+  )
 
 # layer metadata
 pam_layer = arcgisutils::fetch_layer_metadata(url = paste0(pam_url, '/0'))
