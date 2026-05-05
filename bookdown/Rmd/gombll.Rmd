@@ -21,7 +21,7 @@ inport_href = gombll_meta$serviceDescription |>
 
 # description
 gombll_desc = gsub("<a(.|\n)*?</a>", '', gombll_meta$serviceDescription)
-gombll_desc = gsub("<p>|<br>|</p>|\\n", '', gombll_desc)
+gombll_desc = gsub("<p>|<br>|</p>|\\n|\\|", '', gombll_desc)
 ```
 
 ### InPort Metadata

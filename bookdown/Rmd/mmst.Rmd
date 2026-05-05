@@ -21,7 +21,7 @@ inport_href = mmst_meta$serviceDescription |>
 
 # description
 mmst_desc = gsub("<a(.|\n)*?</a>", '', mmst_meta$serviceDescription)
-mmst_desc = gsub("<p>|<br>|</p>|\\n", '', mmst_desc)
+mmst_desc = gsub("<p>|<br>|</p>|\\n|\\|", '', mmst_desc)
 ```
 
 ### InPort Metadata

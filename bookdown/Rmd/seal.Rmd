@@ -21,7 +21,7 @@ inport_href = seal_meta$serviceDescription |>
 
 # description
 seal_desc = gsub("<a(.|\n)*?</a>", '', seal_meta$serviceDescription)
-seal_desc = gsub("<p>|<br>|</p>|\\n", '', seal_desc)
+seal_desc = gsub("<p>|<br>|</p>|\\n|\\|", '', seal_desc)
 ```
 
 ### InPort Metadata
