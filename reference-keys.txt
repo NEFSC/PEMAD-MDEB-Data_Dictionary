@@ -36,7 +36,6 @@ spatial-extent-3
 layers-3
 fields-3
 smit_gombll_strata
-smit_gombll_substrata
 sea-scallop-survey
 arcgis-feature-service-4
 inport-metadata-4
