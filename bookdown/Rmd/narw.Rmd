@@ -16,8 +16,9 @@ Click [here](`r narw_url`).
 # InPort
 inport_href = narw_meta$serviceDescription |>
   rvest::read_html() |>
-  rvest::html_node('a') |>
+  rvest::html_nodes('a') |>
   rvest::html_attr('href')
+inport_href = inport_href[2]
 
 # description
 narw_desc = gsub('<a[^>]*>InPort Metadata</a>', '',  narw_meta$serviceDescription)

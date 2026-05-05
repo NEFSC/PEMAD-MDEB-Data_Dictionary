@@ -16,8 +16,9 @@ Click [here](`r gombll_url`).
 # InPort
 inport_href = gombll_meta$serviceDescription |>
   rvest::read_html() |>
-  rvest::html_node('a') |>
-  rvest::html_attr('href')
+  rvest::html_nodes('a') |> 
+  rvest::html_attr('href') 
+inport_href = inport_href[2]
 
 # description (but keep link)
 token = 'GOMBLL_Token'
