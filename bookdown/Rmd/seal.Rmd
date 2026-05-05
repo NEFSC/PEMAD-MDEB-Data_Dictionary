@@ -19,9 +19,13 @@ inport_href = seal_meta$serviceDescription |>
   rvest::html_node('a') |>
   rvest::html_attr('href')
 
-# description
-seal_desc = gsub("<a(.|\n)*?</a>", '', seal_meta$serviceDescription)
-seal_desc = gsub("<p>|<br>|</p>|\\n|\\|", '', seal_desc)
+# description (but keep link)
+token = 'SEAL_Token'
+seal_desc = gsub('<a href=\"https://connect.fisheries.noaa.gov/content/4d104f77-81d0-4c36-b790-9eb8b147fae8/\">NEFSC Protected Species Division Pinniped Research</a>', token, seal_meta$serviceDescription, fixed = TRUE)
+seal_desc = gsub('<a[^>]*>InPort Metadata</a>', '', seal_desc)
+seal_desc = gsub('<p>|<br>|</p>|\\n|\\|', '', seal_desc)
+seal_desc = gsub(token, ' For more information, see <a href=\"https://connect.fisheries.noaa.gov/content/4d104f77-81d0-4c36-b790-9eb8b147fae8/\">NEFSC Protected Species Division Pinniped Research</a>.', seal_desc)
+seal_desc = trimws(seal_desc)
 ```
 
 ### InPort Metadata

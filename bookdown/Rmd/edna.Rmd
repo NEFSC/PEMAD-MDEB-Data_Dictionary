@@ -20,8 +20,8 @@ inport_href = edna_meta$serviceDescription |>
   rvest::html_attr('href')
 
 # description
-edna_desc = gsub("<a(.|\n)*?</a>", '', edna_meta$serviceDescription)
-edna_desc = gsub("<p>|<br>|</p>|\\n", '', edna_desc)
+edna_desc = gsub('<a[^>]*>InPort Metadata</a>', '', edna_meta$serviceDescription)
+edna_desc = gsub('<p>|<br>|</p>|\\n', '', edna_desc)
 ```
 
 ### InPort Metadata

@@ -19,9 +19,13 @@ inport_href = gombll_meta$serviceDescription |>
   rvest::html_node('a') |>
   rvest::html_attr('href')
 
-# description
-gombll_desc = gsub("<a(.|\n)*?</a>", '', gombll_meta$serviceDescription)
-gombll_desc = gsub("<p>|<br>|</p>|\\n|\\|", '', gombll_desc)
+# description (but keep link)
+token = 'GOMBLL_Token'
+gombll_desc = gsub('<a href=\"https://www.fisheries.noaa.gov/new-england-mid-atlantic/science-data/gulf-maine-bottom-longline-survey\">Gulf of Maine Bottom Longline Survey</a>', token, gombll_meta$serviceDescription, fixed = TRUE)
+gombll_desc = gsub('<a[^>]*>InPort Metadata</a>', '', gombll_desc)
+gombll_desc = gsub('<p>|<br>|</p>|\\n|\\|', '', gombll_desc)
+gombll_desc = gsub(token, ' For more information, see <a href=\"https://www.fisheries.noaa.gov/new-england-mid-atlantic/science-data/gulf-maine-bottom-longline-survey\">Gulf of Maine Bottom Longline Survey</a>.', gombll_desc)
+gombll_desc = trimws(gombll_desc)
 ```
 
 ### InPort Metadata

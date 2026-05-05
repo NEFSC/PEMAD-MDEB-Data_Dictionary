@@ -20,8 +20,8 @@ inport_href = hl_meta$serviceDescription |>
   rvest::html_attr('href')
 
 # description
-hl_desc = gsub("<a(.|\n)*?</a>", '', hl_meta$serviceDescription)
-hl_desc = gsub("<p>|<br>|</p>|\\n", '', hl_desc)
+hl_desc = gsub('<a[^>]*>InPort Metadata</a>', '',  hl_meta$serviceDescription)
+hl_desc = gsub('<p>|<br>|</p>|\\n', '', hl_desc)
 ```
 
 ### InPort Metadata

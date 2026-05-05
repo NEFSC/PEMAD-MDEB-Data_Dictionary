@@ -20,8 +20,8 @@ inport_href = shrimp_meta$serviceDescription |>
   rvest::html_attr('href')
 
 # description
-shrimp_desc = gsub("<a(.|\n)*?</a>", '', shrimp_meta$serviceDescription)
-shrimp_desc = gsub("<p>|<br>|</p>|\\n", '', shrimp_desc)
+shrimp_desc = gsub('<a[^>]*>InPort Metadata</a>', '', shrimp_meta$serviceDescription)
+shrimp_desc = gsub('<p>|<br>|</p>|\\n', '', shrimp_desc)
 ```
 
 ### InPort Metadata

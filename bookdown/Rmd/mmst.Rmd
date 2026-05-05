@@ -22,6 +22,14 @@ inport_href = mmst_meta$serviceDescription |>
 # description
 mmst_desc = gsub("<a(.|\n)*?</a>", '', mmst_meta$serviceDescription)
 mmst_desc = gsub("<p>|<br>|</p>|\\n|\\|", '', mmst_desc)
+
+# description (but keep link)
+token = 'MMST_Token'
+mmst_desc = gsub('<a href=\"https://www.fisheries.noaa.gov/new-england-mid-atlantic/population-assessments/atlantic-marine-assessment-program-protected\">NEFSC Marine Mammal and Sea Turtle Program</a>', token, mmst_meta$serviceDescription, fixed = TRUE)
+mmst_desc = gsub('<a[^>]*>InPort Metadata</a>', '', mmst_desc)
+mmst_desc = gsub('<p>|<br>|</p>|\\n|\\|', '', mmst_desc)
+mmst_desc = gsub(token, ' For more information, see <a href=\"https://www.fisheries.noaa.gov/new-england-mid-atlantic/population-assessments/atlantic-marine-assessment-program-protected\">NEFSC Marine Mammal and Sea Turtle Program</a>.', mmst_desc)
+mmst_desc = trimws(mmst_desc)
 ```
 
 ### InPort Metadata

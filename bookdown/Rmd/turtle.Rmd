@@ -20,8 +20,8 @@ inport_href = turtle_meta$serviceDescription |>
   rvest::html_attr('href')
 
 # description
-turtle_desc = gsub("<a(.|\n)*?</a>", '', turtle_meta$serviceDescription)
-turtle_desc = gsub("<p>|<br>|</p>|\\n", '', turtle_desc)
+turtle_desc = gsub('<a[^>]*>InPort Metadata</a>', '', turtle_meta$serviceDescription)
+turtle_desc = gsub('<p>|<br>|</p>|\\n', '', turtle_desc)
 ```
 
 ### InPort Metadata

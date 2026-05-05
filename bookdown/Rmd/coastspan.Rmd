@@ -20,8 +20,8 @@ inport_href = coastspan_meta$serviceDescription |>
   rvest::html_attr('href')
 
 # description
-coastspan_desc = gsub("<a(.|\n)*?</a>", '', coastspan_meta$serviceDescription)
-coastspan_desc = gsub("<p>|<br>|</p>|\\n", '', coastspan_desc)
+coastspan_desc = gsub('<a[^>]*>InPort Metadata</a>', '', coastspan_meta$serviceDescription)
+coastspan_desc = gsub('<p>|<br>|</p>|\\n', '', coastspan_desc)
 ```
 
 ### InPort Metadata

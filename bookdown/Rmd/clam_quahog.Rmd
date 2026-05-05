@@ -20,8 +20,8 @@ inport_href = clam_quahog_meta$serviceDescription |>
   rvest::html_attr('href')
 
 # description
-clam_quahog_desc = gsub("<a(.|\n)*?</a>", '', clam_quahog_meta$serviceDescription)
-clam_quahog_desc = gsub("<p>|<br>|</p>|\\n", '', clam_quahog_desc)
+clam_quahog_desc = gsub('<a[^>]*>InPort Metadata</a>', '', clam_quahog_meta$serviceDescription)
+clam_quahog_desc = gsub('<p>|<br>|</p>|\\n', '', clam_quahog_desc)
 ```
 
 ### InPort Metadata
